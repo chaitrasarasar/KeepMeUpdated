@@ -1,10 +1,14 @@
 name: Android CI
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  workflow_dispatch:
+    inputs:
+      versionName:
+        description: 'Name of version  (ie 5.5.0)'
+        required: true
+      versionCode:
+        description: 'Version number (50500)'
+        required: true
 
 jobs:
   build:
@@ -51,7 +55,7 @@ jobs:
         id: set-result-artifact
         run: |
           ARTIFACT_PATHNAME_APK=$(ls app/build/outputs/apk/debug/*.apk | head -n 1)
-          ARTIFACT_NAME_APK=$(basename $ARTIFACT_PATHNAME_APK ${{github.run_number}})
+          ARTIFACT_NAME_APK=$(basename $ARTIFACT_PATHNAME_APK) ${{ github.event.inputs.versionCode }}
           echo "ARTIFACT_NAME_APK is " ${ARTIFACT_NAME_APK}
           echo "ARTIFACT_PATHNAME_APK=${ARTIFACT_PATHNAME_APK}" >> $GITHUB_ENV
           echo "ARTIFACT_NAME_APK=${ARTIFACT_NAME_APK}" >> $GITHUB_ENV
