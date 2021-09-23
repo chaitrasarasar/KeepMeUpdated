@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "610924736496",
+    "project_id": "keepmeupdated-9b6a7",
+    "storage_bucket": "keepmeupdated-9b6a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610924736496:android:1bcd52c6120477bddc7735",
+        "android_client_info": {
+          "package_name": "com.example.keepmeupdated"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610924736496-29rjstg6g1kl9jcrvd3ud0gjcp0hb1ti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2pwR073RXb0BHSq_fi7LyHOY5fxBc1to"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "610924736496-29rjstg6g1kl9jcrvd3ud0gjcp0hb1ti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
