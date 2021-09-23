@@ -42,20 +42,16 @@ jobs:
           arguments: assembleRelease
 
 
-      - name: Build Changelog
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Create Release
+        id: create_release
         uses: actions/create-release@v1
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          body: ${{steps.github_release.outputs.changelog}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.versionCode }}
+          release_name: Release ${{ github.event.inputs.versionCode }}
+          draft: false
+          prerelease: false
 
 
       - name: Save name of our Artifact
