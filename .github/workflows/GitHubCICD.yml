@@ -90,7 +90,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ${{ env.ARTIFACT_PATHNAME_APK }}
-          asset_name: '${{ env.ARTIFACT_NAME_APK }}.${{ github.run_number }}'
+          asset_name: '${{ env.ARTIFACT_NAME_APK }}.${{ github.event.inputs.versionName }}'
           asset_content_type: application/zip
 
 
@@ -114,7 +114,7 @@ jobs:
           # Optional whether this connection use TLS (default is true if server_port is 465)
           secure: true
           # Optional plain body:
-          body: New release of ${{github.repository}} is here, Go and check it out!  ${{ steps.create_release.outputs.upload_url }}
+          body: New release of ${{github.repository}} is here, Go and check it out!  https://github.com/chaitrasarasar/KeepMeUpdated/releases/latest
           #          # Optional HTML body read from file:
           #          html_body: file://README.md
           # Optional carbon copy recipients:
