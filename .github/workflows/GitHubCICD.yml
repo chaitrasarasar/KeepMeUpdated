@@ -41,6 +41,12 @@ jobs:
           configuration-cache-enabled: true
           arguments: assembleRelease
 
+      - name: Build Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: Create Release
         id: create_release
@@ -48,8 +54,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.inputs.versionCode }}
-          release_name: Release ${{ github.event.inputs.versionCode }}
+          tag_name: ${{ github.event.inputs.versionName }}
+          release_name: Release ${{ github.event.inputs.versionName }}
+          body: ${{steps.github_release.outputs.changelog}}
           draft: false
           prerelease: false
 
