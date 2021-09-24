@@ -48,8 +48,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.inputs.versionCode }}
-          release_name: Release ${{ github.event.inputs.versionCode }}
+          tag_name: ${{ github.event.inputs.versionName }}
+          release_name: Release ${{ github.event.inputs.versionName }}
+          body: ${{steps.github_release.outputs.changelog}}
           draft: false
           prerelease: false
 
@@ -75,6 +76,7 @@ jobs:
           asset_name: ${{ env.ARTIFACT_NAME_APK }}
           asset_content_type: application/zip
 
+
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
@@ -97,7 +99,7 @@ jobs:
           # Optional plain body:
           body: Build job of ${{github.repository}} completed successfully!
           # Optional carbon copy recipients:
-          cc: chitraarasar107@gmail.com
+          cc: chitraarasar107@gmail.com,periyanayagam.s@cognitiveclouds.com
           # Optional unsigned/invalid certificates allowance:
           ignore_cert: true
           # Optional converting Markdown to HTML (set content_type to text/html too):
