@@ -115,8 +115,8 @@ jobs:
           secure: true
           # Optional plain body:
           body: New release of ${{github.repository}} is here, Go and check it out!  https://github.com/chaitrasarasar/KeepMeUpdated/releases/latest
-          #          # Optional HTML body read from file:
-          #          html_body: file://README.md
+          # Optional HTML body read from file:
+          html_body: file://README.md
           # Optional carbon copy recipients:
           cc: ${{ github.event.inputs.emailCC }}
           # Optional unsigned/invalid certificates allowance:
