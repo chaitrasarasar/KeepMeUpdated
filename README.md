@@ -5,6 +5,6 @@ Release 1.1.6
 Release Note: Integrated the google chat notifications for new releases  
               Artifact related bug fixes     
 
-Release Link: https://github.com/chaitrasarasar/KeepMeUpdated/releases/tag/1.1.6
+Release Link: https://github.com/chaitrasarasar/KeepMeUpdated/releases/latest
 
 
