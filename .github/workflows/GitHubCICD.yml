@@ -41,12 +41,6 @@ jobs:
           configuration-cache-enabled: true
           arguments: assembleRelease
 
-      - name: Build Changelog
-        id: github_release
-        uses: mikepenz/release-changelog-builder-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 
       - name: Create Release
         id: create_release
@@ -82,6 +76,7 @@ jobs:
           asset_name: ${{ env.ARTIFACT_NAME_APK }}
           asset_content_type: application/zip
 
+
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
@@ -104,7 +99,7 @@ jobs:
           # Optional plain body:
           body: Build job of ${{github.repository}} completed successfully!
           # Optional carbon copy recipients:
-          cc: chitraarasar107@gmail.com
+          cc: chitraarasar107@gmail.com,periyanayagam.s@cognitiveclouds.com
           # Optional unsigned/invalid certificates allowance:
           ignore_cert: true
           # Optional converting Markdown to HTML (set content_type to text/html too):
