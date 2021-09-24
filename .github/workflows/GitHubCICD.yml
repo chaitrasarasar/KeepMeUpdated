@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       versionName:
-        description: 'Name of version  ${{ env.CURRENT_VERSION}}'
+        description: 'Name of version like (2.3.0)'
         required: true
       versionCode:
         description: 'Version number (50500)'
