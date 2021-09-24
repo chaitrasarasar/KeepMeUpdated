@@ -48,7 +48,7 @@ jobs:
           wrapper-cache-enabled: true
           dependencies-cache-enabled: true
           configuration-cache-enabled: true
-          arguments: assembleBebug
+          arguments: assembleRelease
 
       - name: Build Changelog
         id: github_release
