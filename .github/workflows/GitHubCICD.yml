@@ -126,7 +126,11 @@ jobs:
           # Optional priority: 'high', 'normal' (default) or 'low'
           priority: high
 
-      - uses: delivery-much/actions-chat@v1
+      - name: Google Chat Notification
+        uses: Co-qn/google-chat-notification@releases/v1
         with:
+          name: Build
           url: ${{ github.event.inputs.googleChatWebhookURl }}
+          status: ${{ job.status }}
+        if: always()
 
